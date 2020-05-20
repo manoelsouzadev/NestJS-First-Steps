@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { CountryModule } from './modules/country/country.module';
+import { environment } from './environments/environment';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://manoel:mongodbnosql@cluster0-4lzxg.mongodb.net/test?retryWrites=true&w=majority'), CountryModule],
+  imports: [MongooseModule.forRoot(environment.mongoURI), CountryModule],
   controllers: [AppController],
   providers: [AppService],
 })
