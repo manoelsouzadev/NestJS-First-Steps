@@ -1,3 +1,4 @@
+import { CityInterface } from './interfaces/city.interface';
 import {
   Controller,
   Get,
@@ -24,12 +25,12 @@ export class AppController {
   }
 
   @Post("cities")
-  save(@Body() city: City) {
+  save(@Body() city: CityInterface) {
     return this.appService.save(city);
   }
 
   @Put("cities/:id")
-  update(@Param("id") id, @Body() city: City) {
+  update(@Param("id") id, @Body() city: CityInterface) {
     return this.appService.update(id, city);
   }
 
